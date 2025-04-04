@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 <style>
 
@@ -97,6 +99,30 @@
                 </div>
                 <div><img src="image/newteentitanscomic.jpg" width="50px"></div>
                 </div></div>
+                <footer>
+                    <button onclick="getLocation()">Try It</button>
+    
+                    <p id="demo"></p>
+                </footer>
+    
+    
+            
         
         </div>
 </body>
+<script>
+    const x = document.getElementById("demo");
+    
+    function getLocation() {
+      try {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } catch(err) {
+        x.innerHTML = err;
+      }
+    }
+    
+    function showPosition(position) {
+      x.innerHTML = "Latitude: " + position.coords.latitude + 
+      "<br>Longitude: " + position.coords.longitude;
+    }
+</script>
